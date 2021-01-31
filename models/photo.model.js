@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 
 const photoSchema = new mongoose.Schema({
-	owener_uid: {
+	owner_uid: {
 		type: String,
 		required: true
 	},
@@ -21,8 +21,9 @@ const photoSchema = new mongoose.Schema({
 		type: [String],
 		default: []
 	},
-	timestamps: true // use this for date added and date last commented/liked
-});
+},
+	{timestamps: true} // use this for date added and date last commented/liked
+);
 
 const Photo = mongoose.model('Photo', photoSchema);
 

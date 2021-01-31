@@ -4,6 +4,10 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
 
+// import router as userRouter from './routes/users.js'; no need to alias explicitly here
+import userRouter from './routes/users.js';
+import photoRouter from './routes/photos.js';
+
 dotenv.config();
 
 const app = express();
@@ -16,10 +20,13 @@ const uri = process.env.ATLAS_URI;
 
 // flags to avoid deprecation warnings https://mongoosejs.com/docs/deprecations.html
 // might want to put connect in a try/catch
-mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true})
 mongoose.connection.once('open', () => {
 	console.log("MongoDB database connection is open");
 });
+
+app.use('/users', userRouter);
+app.use('/photos', photoRouter);
 
 app.listen(port, () => {
 	console.log(`Server is running on port: ${port}`);

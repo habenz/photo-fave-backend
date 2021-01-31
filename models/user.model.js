@@ -14,10 +14,11 @@ const userSchema = new mongoose.Schema({
 		required: true,
 		minlength: 7
 	},
-	user_photos: {
-		type: [String],
-		default: []
-	},
+	// instead find photos owned by this user's id
+	// user_photos: {
+	// 	type: [String],
+	// 	default: []
+	// },
 	liked_photos: {
 		type: [String],
 		default: []
@@ -26,8 +27,9 @@ const userSchema = new mongoose.Schema({
 		type: [String],
 		default: []
 	},
-	timestamps: true
-});
+},
+	// need to pass timestamp flag as second argument 
+	{timestamps: true});
 
 const User = mongoose.model('User', userSchema);
 

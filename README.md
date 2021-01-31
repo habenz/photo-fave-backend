@@ -10,6 +10,10 @@
 			- https://mongoosejs.com/docs/subdocs.html
 			- https://vegibit.com/mongoose-relationships-tutorial/#:~:text=Mongoose%20Relationships%20Tutorial%20Summary,does%20with%20a%20relational%20database.
 		- Note to self: Validation for required properties has to be updated: https://mongoosejs.com/docs/validation.html#required-validators-on-nested-objects
+		- useful reference for models/mongoose https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/mongoose
+	- set up routes and separate controllers for routes
+		- began with basic getters for single and all users
+		- then post to create new user
 
 ###### Fun Discoveries!
 	- ls -Inode_modules -R 
