@@ -16,6 +16,7 @@
 		- then posts to create new user and create new photo
 
 	- Began Front-end Dev
+	- added new routes to both photoController and userControllers
 
 ###### Fun Discoveries!
 	- ls -Inode_modules -R 

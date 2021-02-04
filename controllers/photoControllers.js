@@ -3,7 +3,8 @@ import mongoose from 'mongoose';
 
 import Photo from '../models/photo.model.js';
 
-const router = express.Router();
+// const router = express.Router(); // don't think this is necessary??
+
 
 export const getPhotos = (req, res) => {
 	Photo.find()
@@ -26,4 +27,11 @@ export const addPhoto = (req, res) => {
 	newPhoto.save()
 		.then(() => res.json(`Added Photo ${req.body.name || ''}!`))
     	.catch(err => res.status(400).json('Error: ' + err));
+}
+
+export const getUserPhotos = (req, res) => {
+	const {id} = req.params;
+	Photo.find({owner_uid: id})
+		.then(photos => res.json(photos))
+		.catch(err =>  res.status(400).json('Error: ' + err));
 }
