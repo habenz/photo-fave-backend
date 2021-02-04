@@ -13,12 +13,10 @@
 		- useful reference for models/mongoose https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/mongoose
 	- set up routes and separate controllers for routes
 		- began with basic getters for single and all users
-		- then post to create new user
+		- then posts to create new user and create new photo
+
+	- Began Front-end Dev
 
 ###### Fun Discoveries!
 	- ls -Inode_modules -R 
 		- -Istring ignores things that match string, -R does recursive listing
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
