@@ -35,3 +35,12 @@ export const getUserPhotos = (req, res) => {
 		.then(photos => res.json(photos))
 		.catch(err =>  res.status(400).json('Error: ' + err));
 }
+
+export const addLike = (req, res) => {
+	const {userId, photoId} = req.body;
+	Photo.updateOne({_id: photoId}, {
+		$push: {likes: userId}
+	})
+		.then(() => res.status(200).json('added like to photo'))
+    	.catch(err => res.status(400).json('Error: ' + err));	
+}
