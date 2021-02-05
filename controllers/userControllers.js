@@ -48,6 +48,16 @@ export const addLikedPhotoToUser = (req, res) => {
     	.catch(err => res.status(400).json('Error: ' + err));	
 }
 
+export const removeLikedPhotoFromUser = (req, res) => {
+	const {userId, photoId} = req.body;
+	// find by id, then push into the liked_photos array of the user
+	User.updateOne({_id: userId}, {
+		$pull: {liked_photos: photoId}
+	})
+		.then(() => res.status(200).json('removed like from user'))
+    	.catch(err => res.status(400).json('Error: ' + err));	
+}
+
 export const getUserLikedPhotos = (req, res) => {
 	const {id} = req.params;
 	User.findById(id)
