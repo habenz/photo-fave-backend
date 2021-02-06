@@ -25,7 +25,7 @@ export const addPhoto = (req, res) => {
 	}
 
 	newPhoto.save()
-		.then(() => res.json(`Added Photo ${req.body.name || ''}!`))
+		.then(() => res.status(201).json(newPhoto))
     	.catch(err => res.status(400).json('Error: ' + err));
 }
 
