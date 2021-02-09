@@ -17,6 +17,10 @@ const photoSchema = new mongoose.Schema({
 		type: [String],
 		default: []
 	},
+	like_count: {
+		type: Number,
+		default: 0
+	},
 	comments: {
 		type: [String],
 		default: []
