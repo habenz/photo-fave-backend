@@ -16,6 +16,10 @@ const port = process.env.PORT || 5000;
 app.use(cors()); // cors middleware to allow cross origin requests (from the front end?)
 app.use(express.json()); // server will send and receive json
 
+app.get('/', (req, res) => {
+	res.send("Welcome to Photo Fave Server!");
+});
+
 const uri = process.env.ATLAS_URI;
 
 // flags to avoid deprecation warnings https://mongoosejs.com/docs/deprecations.html
