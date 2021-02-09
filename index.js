@@ -8,9 +8,9 @@ import mongoose from 'mongoose';
 import userRouter from './routes/users.js';
 import photoRouter from './routes/photos.js';
 
+const app = express();
 dotenv.config();
 
-const app = express();
 const port = process.env.PORT || 5000;
 
 app.use(cors()); // cors middleware to allow cross origin requests (from the front end?)
