@@ -1,7 +1,8 @@
 import express from 'express';
 
 import {getUsers, getUser, getUserByName, addUser,
-	addLikedPhotoToUser, getUserLikedPhotos, removeLikedPhotoFromUser } from '../controllers/userControllers.js';
+	addLikedPhotoToUser, getUserLikedPhotos, removeLikedPhotoFromUser,
+	deleteUser } from '../controllers/userControllers.js';
 
 const router = express.Router();
 
@@ -13,5 +14,6 @@ router.post('/add', addUser);
 router.patch('/like', addLikedPhotoToUser);
 router.get('/liked-photos/:id', getUserLikedPhotos);
 router.patch('/unlike', removeLikedPhotoFromUser);
+router.delete('/delete-user/:id', deleteUser);
 
 export default router;

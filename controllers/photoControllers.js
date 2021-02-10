@@ -56,6 +56,13 @@ export const removeLike = (req, res) => {
     	.catch(err => res.status(400).json('Error: ' + err));	
 }
 
+export const deletePhoto = (req, res) => {
+	const {id} = req.params;
+	Photo.findByIdAndDelete(id)
+		.then(deletedPhoto => res.json(tempUserHolder))
+		.catch(err => res.json(err))
+}
+
 // Failed Attempt to write function to add like_count to every photo in DB
 // export const updateLikeCounts = (req, res) => {
 // 	Photo.updateMany({},)

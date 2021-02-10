@@ -65,3 +65,18 @@ export const getUserLikedPhotos = (req, res) => {
 		.then(photos => res.json(photos))
 		.catch(err =>  res.status(400).json('Error: ' + err));
 }
+
+// Still need to remove user id from liked photos
+export const deleteUser = (req, res) => {
+	const {id} = req.params;
+	let tempUserHolder;
+	User.findByIdAndDelete(id)
+		.then(deletedUser => {tempUserHolder = deletedUser})
+		.then(() => Photo.deleteMany({owner_uid: id}))
+	// 	.then(() => Photo.updateMany({likes:{$in:[id]}},{
+	// 	$pull: {likes: userId},
+	// 	$inc: {like_count: -1}
+	// }))
+		.then(() => res.json(tempUserHolder))
+		.catch(err => res.json(err))
+}
