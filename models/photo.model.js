@@ -13,7 +13,7 @@ const photoSchema = new mongoose.Schema({
 		type: String,
 		required: true
 	},
-	likes: { // simple count or list of users who have liked it?
+	likes: { // list of user ids
 		type: [String],
 		default: []
 	},

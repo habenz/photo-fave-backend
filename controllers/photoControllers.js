@@ -38,7 +38,6 @@ export const addLike = (req, res) => {
 	Photo.updateOne({_id: photoId}, {
 		$push: {likes: userId},
 		$inc: {like_count: 1}
-
 	})
 		.then(() => res.status(200).json('added like to photo'))
     	.catch(err => res.status(400).json('Error: ' + err));	
@@ -49,8 +48,6 @@ export const removeLike = (req, res) => {
 	Photo.updateOne({_id: photoId}, {
 		$pull: {likes: userId},
 		$inc: {like_count: -1}
-
-
 	})
 		.then(() => res.status(200).json('removed like from photo'))
     	.catch(err => res.status(400).json('Error: ' + err));	
@@ -59,23 +56,23 @@ export const removeLike = (req, res) => {
 export const deletePhoto = (req, res) => {
 	const {id} = req.params;
 	Photo.findByIdAndDelete(id)
-		.then(deletedPhoto => res.json(tempUserHolder))
+		.then(deletedPhoto => res.json(deletedPhoto))
 		.catch(err => res.json(err))
 }
 
 // Failed Attempt to write function to add like_count to every photo in DB
 // export const updateLikeCounts = (req, res) => {
-// 	Photo.updateMany({},)
+// 	// Photo.updateMany({},)
 
-// 	// Photo.find()
-// 	// 	.then(photos => {
-// 	// 		for (const pic in photos) {
-// 	// 			const likeCount = pic.likes.length;
-// 	// 			pic.like_count = likeCount;
-// 	// 			pic.save();
-// 	// 		}
-// 	// 		// photos[0].like_count = photos[0].likes.length;
-// 	// 		// photos[0].save()
-// 	// 		res.json('done?');
-// 	// 	})
+// 	Photo.find()
+// 		.then(photos => {
+// 			for (const pic in photos) {
+// 				const likeCount = pic.likes.length;
+// 				pic.like_count = likeCount;
+// 				pic.save();
+// 			}
+// 			// photos[0].like_count = photos[0].likes.length;
+// 			// photos[0].save()
+// 			res.json('done?');
+// 		})
 // }
